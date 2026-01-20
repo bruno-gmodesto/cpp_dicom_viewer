@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>900</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>DICOM Viewer</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QMainWindow {
+    background-color: #0a0a0a;
+}
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">
+QWidget#centralwidget {
+    background-color: #0a0a0a;
+}
+    </string>
+   </property>
+   <layout class="QVBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="contentLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="sidePanel" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>280</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>280</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+QWidget#sidePanel {
+    background-color: #111111;
+    border-right: 1px solid #1a1a1a;
+}
+         </string>
+        </property>
+        <layout class="QVBoxLayout" name="sidePanelLayout">
+         <property name="spacing">
+          <number>24</number>
+         </property>
+         <property name="leftMargin">
+          <number>32</number>
+         </property>
+         <property name="topMargin">
+          <number>48</number>
+         </property>
+         <property name="rightMargin">
+          <number>32</number>
+         </property>
+         <property name="bottomMargin">
+          <number>48</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="logoLabel">
+           <property name="styleSheet">
+            <string notr="true">
+QLabel {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 4px;
+}
+            </string>
+           </property>
+           <property name="text">
+            <string>DICOM</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="subtitleLabel">
+           <property name="styleSheet">
+            <string notr="true">
+QLabel {
+    color: #555555;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-top: -20px;
+}
+            </string>
+           </property>
+           <property name="text">
+            <string>VIEWER</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Policy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>60</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushLerDicomButton">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>48</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QPushButton {
+    background-color: #ffffff;
+    color: #0a0a0a;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 24px;
+    letter-spacing: 1px;
+}
+QPushButton:hover {
+    background-color: #e0e0e0;
+}
+QPushButton:pressed {
+    background-color: #cccccc;
+}
+            </string>
+           </property>
+           <property name="text">
+            <string>Abrir Arquivo</string>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushSairButton">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>48</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QPushButton {
+    background-color: transparent;
+    color: #666666;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 24px;
+    letter-spacing: 1px;
+}
+QPushButton:hover {
+    color: #ffffff;
+    border-color: #555555;
+}
+QPushButton:pressed {
+    background-color: #1a1a1a;
+}
+            </string>
+           </property>
+           <property name="text">
+            <string>Sair</string>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="ajustesWidget" native="true">
+           <property name="visible">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QWidget#ajustesWidget {
+    background-color: transparent;
+    margin-top: 16px;
+}
+            </string>
+           </property>
+           <layout class="QVBoxLayout" name="ajustesLayout">
+            <property name="spacing">
+             <number>16</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>16</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="ajustesTitleLabel">
+              <property name="styleSheet">
+               <string notr="true">
+QLabel {
+    color: #888888;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #222222;
+}
+               </string>
+              </property>
+              <property name="text">
+               <string>AJUSTES</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="windowWidthLabel">
+              <property name="styleSheet">
+               <string notr="true">
+QLabel {
+    color: #666666;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+               </string>
+              </property>
+              <property name="text">
+               <string>Window Width</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSlider" name="windowWidthSlider">
+              <property name="styleSheet">
+               <string notr="true">
+QSlider::groove:horizontal {
+    background: #222222;
+    height: 4px;
+    border-radius: 2px;
+}
+QSlider::handle:horizontal {
+    background: #ffffff;
+    width: 14px;
+    height: 14px;
+    margin: -5px 0;
+    border-radius: 7px;
+}
+QSlider::handle:horizontal:hover {
+    background: #e0e0e0;
+}
+               </string>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>10000</number>
+              </property>
+              <property name="value">
+               <number>2000</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="windowLevelLabel">
+              <property name="styleSheet">
+               <string notr="true">
+QLabel {
+    color: #666666;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+               </string>
+              </property>
+              <property name="text">
+               <string>Window Level</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSlider" name="windowLevelSlider">
+              <property name="styleSheet">
+               <string notr="true">
+QSlider::groove:horizontal {
+    background: #222222;
+    height: 4px;
+    border-radius: 2px;
+}
+QSlider::handle:horizontal {
+    background: #ffffff;
+    width: 14px;
+    height: 14px;
+    margin: -5px 0;
+    border-radius: 7px;
+}
+QSlider::handle:horizontal:hover {
+    background: #e0e0e0;
+}
+               </string>
+              </property>
+              <property name="minimum">
+               <number>-5000</number>
+              </property>
+              <property name="maximum">
+               <number>5000</number>
+              </property>
+              <property name="value">
+               <number>1000</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="metadataWidget" native="true">
+           <property name="visible">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QWidget#metadataWidget {
+    background-color: transparent;
+}
+            </string>
+           </property>
+           <layout class="QVBoxLayout" name="metadataLayout">
+            <property name="spacing">
+             <number>8</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>16</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="metadataTitleLabel">
+              <property name="styleSheet">
+               <string notr="true">
+QLabel {
+    color: #888888;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #222222;
+}
+               </string>
+              </property>
+              <property name="text">
+               <string>METADATA</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="patientNameLabel">
+              <property name="styleSheet">
+               <string notr="true">
+QLabel {
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+               </string>
+              </property>
+              <property name="text">
+               <string>Patient: --</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="studyDateLabel">
+              <property name="styleSheet">
+               <string notr="true">
+QLabel {
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+               </string>
+              </property>
+              <property name="text">
+               <string>Date: --</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="modalityLabel">
+              <property name="styleSheet">
+               <string notr="true">
+QLabel {
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+               </string>
+              </property>
+              <property name="text">
+               <string>Modality: --</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="dimensionsLabel">
+              <property name="styleSheet">
+               <string notr="true">
+QLabel {
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+               </string>
+              </property>
+              <property name="text">
+               <string>Size: --</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="bitsLabel">
+              <property name="styleSheet">
+               <string notr="true">
+QLabel {
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+               </string>
+              </property>
+              <property name="text">
+               <string>Bits: --</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="versionLabel">
+           <property name="styleSheet">
+            <string notr="true">
+QLabel {
+    color: #333333;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+            </string>
+           </property>
+           <property name="text">
+            <string>v1.0.0</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="viewerArea" native="true">
+        <property name="styleSheet">
+         <string notr="true">
+QWidget#viewerArea {
+    background-color: #0a0a0a;
+}
+         </string>
+        </property>
+        <layout class="QVBoxLayout" name="viewerLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item alignment="Qt::AlignmentFlag::AlignCenter">
+          <widget class="QLabel" name="placeholderLabel">
+           <property name="styleSheet">
+            <string notr="true">
+QLabel {
+    color: #2a2a2a;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+            </string>
+           </property>
+           <property name="text">
+            <string>Nenhum arquivo carregado</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
