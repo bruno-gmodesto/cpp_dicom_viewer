@@ -29,7 +29,6 @@ public:
     QString labelSubtitleStyle() const;
     QString labelMutedStyle() const;
     QString viewerAreaStyle() const;
-
     void applyGlobalStyle(QWidget* widget) const;
 
 private:
