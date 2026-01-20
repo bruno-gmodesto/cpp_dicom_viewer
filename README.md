@@ -17,7 +17,7 @@ Visualizador profissional de imagens médicas (DICOM) desenvolvido com C++, Qt, 
   - Interface moderna e responsiva.
   - Painel lateral com metadados do paciente e exame.
 
-## 🛠 Arquitetura do Projeto
+## Arquitetura do Projeto
 
 ```
 src/
@@ -40,7 +40,7 @@ src/
 5. Dados são transferidos para **vtkImageData**.
 6. **vtkImageViewer2** renderiza a imagem na widget Qt.
 
-## 📦 Dependências
+## Dependências
 
 | Biblioteca | Versão Mínima | Função |
 |------------|---------------|--------|
@@ -49,7 +49,7 @@ src/
 | **DCMTK**  | 3.6.7+        | Parser e Codecs DICOM |
 | **CMake**  | 3.16+         | Sistema de Build |
 
-## 🔨 Como Compilar
+## Como Compilar
 
 ### Pré-requisitos
 Certifique-se de ter as bibliotecas instaladas.
@@ -71,8 +71,3 @@ cmake --build .
 ./dicom_viewer.app/Contents/MacOS/dicom_viewer  # macOS
 ./dicom_viewer                                  # Linux
 ```
-
-
-## 📄 Licença
-
-Este projeto é open-source. Sinta-se livre para estudar e modificar.
